@@ -1,0 +1,295 @@
+@import "variables";
+@import "mixins";
+@import "header";
+@import "footer";
+@import "logo-page";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+div {
+  display: block;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 17px;
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 900px;
+    .main-container-slider-block {
+      width: 500px;
+      overflow: hidden;
+      position: relative;
+      .slider__arrow {
+        display: inline;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-right: 17px;
+      }
+      .slick-next{
+        height: 500px;
+        width: 50px;
+        right: 0;
+        background-color: #fff;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .slick-next:before {
+        content: "";
+      }
+      .slick-next:hover {
+        opacity: 0.4;
+      }
+      .slick-next:hover ~ .slider__arrow {
+        display: inline;
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+    }
+    .main-container-description {
+      width: 387px;
+      color: $description-text-color;
+      font-size: 18px;
+      h3 {
+        font-size: 32px;
+        font-family: $container-header-text;
+        font-weight: 100;
+        color: #000;
+      }
+      .main-container-description-price {
+        font-weight: bold;
+        p {
+          margin-top: 11px;
+        }
+        .main-container-description-price__user-name {
+          color: $main-color;
+        }
+        .main-container-description-price__price {
+          color: $price-color;
+          font-size: 32px;
+          margin-left: 14px;
+        }
+      }
+      .main-container-description-paragraphs {
+        p {
+          margin-top: 22px;
+        }
+        p:first-child {
+          margin-top: 28px;
+        }
+        .span__bold {
+          font-weight: bold;
+        }
+        .span__italic {
+          font-style: italic;
+        }
+        ul{
+          font-weight: bold;
+        }
+        li {
+          margin-left: 10px;
+        }
+        li:before {
+          content: "-";
+          position: absolute;
+          margin-left: -10px;
+        }
+      }
+    }
+    //chat
+    .main-container-chat {
+      margin-top: 10px;
+      color: $description-text-color;
+      h3{
+        font-size: 30px;
+        span {
+          font-size: 14px;
+        }
+        .main-container-chat__user2-name{
+          color: $main-color;
+        }
+      }
+    }
+    .main-container-chat__chat{
+      display: flex;
+      justify-content: flex-start;
+      .main-container-chat-area {
+        width: 515px;
+        font-size: 14px;
+        .main-container-chat-area-one-line {
+          margin-top: 93px;
+        }
+       .main-container-chat-area-one-line__img {
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         img {
+           width: 25px;
+           @include border-radius(13px);
+         }
+         p {
+           border-right: 5px solid $main-color;
+           padding-right: 2px;
+           margin-left: 10px;
+         }
+       }
+        .main-container-chat-area-multi-line {
+          margin-top: 30px;
+          padding-left: 56px;
+          padding-right: 10px;
+          justify-content: flex-end;
+          display: flex;
+          p {
+            border-left: 5px solid $main-color;
+            padding-left: 7px;
+            padding-right: 5px;
+            font-size: 14px;
+          }
+          img {
+            width: 25px;
+            @include border-radius(13px);
+          }
+        }
+      .main-container-chat-area-input {
+        margin-top: 24px;
+        input {
+          width: 100%;
+          outline: none;
+          height: 24px;
+          border: none;
+          border-bottom: 1px solid $main-color;
+          padding-left: 7px;
+          font-size: 12px;
+        }
+        img {
+          position: relative;
+          z-index: 2;
+          float: right;
+          margin-top: -17px;
+          margin-right: 5px;
+        }
+      }
+      }
+      .main-container-chat-connected {
+        width: 297px;
+        h4 {
+          height: 18px;
+        }
+        .main-container-chat-connected-users {
+          display: flex;
+          align-items: center;
+          margin-top: 12px;
+          img {
+            @include border-radius(20px);
+            width: 40px;
+            cursor: pointer;
+          }
+          p {
+            margin-left: 11px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width : 768px) and (max-width : 980px) {
+  .main {
+    .main-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      .main-container-description{
+        width: 387px / 900px *100%;
+        font-size: 16px;
+        h3, .main-container-description-price .main-container-description-price__price {
+          font-size: 28px;
+        }
+      }
+      .main-container-slider-block {
+        width: 500px / 900px * 100%;
+        overflow: hidden;
+      }
+      .main-container-chat {
+        margin: 0 auto;
+        h3 {
+          font-size: 28px;
+        }
+      }
+      .main-container-chat__chat {
+        .main-container-chat-connected {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    .main-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .main-container-slider-block {
+        width: 100%;
+      }
+      .main-container-description {
+        width: 90%;
+        font-size: 14px;
+        h3, .main-container-description-price .main-container-description-price__price {
+          font-size: 24px;
+        }
+      }
+      .main-container-chat {
+        width: 90%;
+        h3 {
+          font-size: 24px;
+        }
+        .main-container-chat__chat {
+          //display: block;
+          display: flex;
+          flex-direction: column-reverse;
+          .main-container-chat-area {
+            width: 100%;
+            .main-container-chat-area-one-line {
+              margin-top: 25px;
+            }
+            .main-container-chat-multiple-line {
+              padding-left: 7%;
+            }
+          }
+        }
+        .main-container-chat-connected {
+          width: 100%;
+          margin-top: 20px;
+          .main-container-chat-connected-users {
+            float: left;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}

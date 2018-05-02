@@ -1,0 +1,115 @@
+@import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+div {
+  display: block;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .header-blocks {
+    float: left;
+    font-family: Arial, sans-serif;
+  }
+  .header-logo {
+    margin-left: 50px / 1440px * 100%;
+    width: 115px / 1440px * 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .header-search {
+    margin-left: 118px / 1440px * 100%;
+    width: 448px / 1440px * 100%;
+    input {
+      width: 100%;
+      height: 28px;
+      font-size: 14px;
+      margin-top: 18px  / 1440px * 100%;
+      padding-left: 21px;
+      border: none;
+      border-bottom: 1px solid $main-color;
+      outline: none;
+    }
+    img{
+      position: relative;
+      float: left; //without float doesn't works margin with "-"
+      z-index: 2;
+      margin-top: -18px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+  .header-user-block {
+    float: right;
+    background-color: $main-color;
+    width: 333px / 1440px * 100%;
+    padding: 10px  / 1440px * 100% 25px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header-user-block__block {
+      float: left;
+    }
+    .header-user-block__icon img {
+      @include border-radius(20px);
+      width: 40px;
+    }
+    .header-user-block__name {
+      margin-left: 12px;
+      font-size: 16px;
+    }
+    .header-user-block__sign-out-icon {
+      float: right;
+      margin-top: 8px;
+      img {
+        width: 27px;
+      }
+    }
+  }
+}
+
+@media (min-width : 768px) and (max-width : 980px) {
+  .header {
+    .header-logo {
+      margin-top: 5px;
+    }
+    .header-user-block {
+      padding: 2px 10px;
+      font-size: 14px;
+      .header-user-block__sign-out-icon {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    .header-logo {
+      margin-top: 5px;
+    }
+    .header-user-block {
+      padding: 0 10px;
+      @include border-radius(5px);
+      .header-user-block__name {
+        display: none;
+      }
+    }
+  }
+}
