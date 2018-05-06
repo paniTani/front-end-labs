@@ -67,6 +67,9 @@ a {
     justify-content: space-between; }
     .header .header-user-block .header-user-block__block {
       float: left; }
+      .header .header-user-block .header-user-block__icon:hover{
+        cursor: pointer;
+      }
     .header .header-user-block .header-user-block__icon img {
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
@@ -79,6 +82,8 @@ a {
     .header .header-user-block .header-user-block__sign-out-icon {
       float: right;
       margin-top: 8px; }
+    .header .header-user-block .header-user-block__sign-out-icon:hover {
+      cursor: pointer; }
       .header .header-user-block .header-user-block__sign-out-icon img {
         width: 27px; }
 
